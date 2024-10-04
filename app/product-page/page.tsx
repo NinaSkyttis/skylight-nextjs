@@ -13,11 +13,13 @@ export interface Reviews {
   date: string;
 }
 
-interface ReviewsPageProps {
-  home: boolean;
-}
+// interface ProductPageProps {
+//   home: boolean;
+// }
 
-export default async function ReviewsPage({home}: ReviewsPageProps) {
+// export default async function ProductPage({home}: ProductPageProps) {
+
+export default async function ProductPage() {
   // Fetching reviews from database (MySQL)
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reviews`);
 
@@ -39,13 +41,13 @@ export default async function ReviewsPage({home}: ReviewsPageProps) {
 
   return (
     <div className="flex flex-col">
-      {home ? (
+      {/* {home ? (
         <Ratings
           home={true}
           averageRating={averageRating}
           totalRatings={totalRatings}
         />
-      ) : (
+      ) : ( */}
         <>
           <section className="flex flex-col lg:flex-row items-center lg:gap-8">
             <div className="relative w-full mt-4 -ml-12 lg:w-1/2">
@@ -97,7 +99,7 @@ export default async function ReviewsPage({home}: ReviewsPageProps) {
             )}
           </section>
         </>
-      )}
+      {/* )} */}
     </div>
   );
 }
