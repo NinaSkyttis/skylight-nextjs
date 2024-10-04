@@ -10,12 +10,12 @@ interface StarFill {
 }
 
 export const Star = ({ rating }: StarFill) => {
-  const starFill: number = Number((rating * 19).toFixed(1));
+  const starFill: number = Number((rating * 20).toFixed(1));
 
   return (
     <div className="relative w-28 h-7 bg-white">
       <div
-        style={{ width: `${starFill}%` }}
+        style={{ width: `${starFill - 3}%` }}
         className="initial h-6 bg-yellow-500 z-0"
       ></div>
       <Image

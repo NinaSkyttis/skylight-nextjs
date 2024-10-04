@@ -7,7 +7,7 @@ interface ButtonProps {
 }
 
 // Not sure this is the best way to adjust the endpoint in the Link component,
-// but felt like a simple way to navigate
+// but felt like a simple way to navigate to another page
 
 export const Button = ({ text }: ButtonProps) => {
   return (

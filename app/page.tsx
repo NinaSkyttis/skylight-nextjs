@@ -1,6 +1,6 @@
 import { Button } from "./components/button";
 import { ImageSlider } from "./components/image-slider";
-// import ProductPage from "./product-page/page";
+import RatingAndReviews from "./components/ratings-and-reviews";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
 
         <section className="lg:flex lg:flex-col lg:items-start lg:justify-center lg:pl-8">
           <header className="lg:px-5">
-            {/* <ProductPage home={true} /> */}
+            <RatingAndReviews home={true}/>
             <h1 className="text-center text-4xl md:text-6xl px-6 lg:text-5xl lg:text-start lg:m-0">
               A Natural Touch to Your Memories
             </h1>

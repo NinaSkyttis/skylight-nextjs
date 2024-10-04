@@ -1,54 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { Review } from "../components/review";
-import Ratings from "../components/ratings";
+import RatingAndReviews from "../components/ratings-and-reviews";
 import { AddToCart } from "../components/add-to-cart";
 
-export interface Reviews {
-  id: number;
-  name: string;
-  title: string;
-  description: string;
-  rating: number;
-  date: string;
-}
-
-// interface ProductPageProps {
-//   home: boolean;
-// }
-
-// export default async function ProductPage({home}: ProductPageProps) {
-
 export default async function ProductPage() {
-  // Fetching reviews from database (MySQL)
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reviews`);
-
-  if (!res.ok) {
-    throw new Error("failed to fetch data");
-  }
-
-  const reviews = await res.json();
-
-  // collecting the total ratings number divide by length to get average value
-  const totalReviews = reviews.reduce(
-    (sum: number, review: Reviews) => sum + review.rating,
-    0,
-  );
-
-  // calculating the average rating
-  const totalRatings = reviews.length.toFixed(0);
-  const averageRating = totalReviews / reviews.length;
-
   return (
     <div className="flex flex-col">
-      {/* {home ? (
-        <Ratings
-          home={true}
-          averageRating={averageRating}
-          totalRatings={totalRatings}
-        />
-      ) : ( */}
-        <>
           <section className="flex flex-col lg:flex-row items-center lg:gap-8">
             <div className="relative w-full mt-4 -ml-12 lg:w-1/2">
               <Image
@@ -73,33 +30,11 @@ export default async function ProductPage() {
               </h2>
             </header>
             <div className="w-full">
-              <Ratings
+              <RatingAndReviews
                 home={false}
-                averageRating={averageRating}
-                totalRatings={totalRatings}
               />
             </div>
-
-            {reviews.length > 0 ? (
-              reviews.map((review: Reviews) => (
-                <article key={review.id} className="m-auto">
-                  <Review
-                    key={review.id}
-                    name={review.name}
-                    rating={review.rating}
-                    title={review.title}
-                    description={review.description}
-                    date={review.date}
-                  />
-                  <hr className="my-4" />
-                </article>
-              ))
-            ) : (
-              <p>No reviews available.</p>
-            )}
-          </section>
-        </>
-      {/* )} */}
+        </section>
     </div>
   );
 }
