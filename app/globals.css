@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --poppins: "Poppins", sans-serif;
+  --crimson: "Crimson Text", serif;
+  font-size: 13px;
+  --text-black: #444444;
+}
+
+body {
+  background: #fffefa;
+  font-family: "Poppins", sans-serif;
+}
+
+/* a {
+  text-decoration: none !important;
+} */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--crimson);
+  color: var(--text-black);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .image-fade {
+    mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .nins {
+    background: linear-gradient(270deg, #fdc36d, #f66955);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 10s ease infinite;
+  }
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 100%;
+    }
+
+    50% {
+      background-position: 100% 0%;
+    }
+
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../public/fonts/Poppins-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Crimson Text";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../public/fonts/CrimsonText-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Crimson Text";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../public/fonts/CrimsonText-Italic.ttf") format("truetype");
+  }
+}
